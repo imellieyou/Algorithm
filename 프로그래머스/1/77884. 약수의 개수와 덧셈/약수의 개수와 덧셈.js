@@ -1,10 +1,10 @@
 function solution(left, right) {
-    // 숫자 범위 배열 만들기
-    let nums = [];
+    let answer = 0;
+    
+    // 굳이 배열을 만들 필요가 없으니까 for문으로 수정
     for (let i = left; i <= right; i++) {
-        // 제곱근이 되는 숫자만 약수의 개수가 홀수
-        nums.push(Math.sqrt(i) % 1 === 0 ? -i : i);
+        Math.sqrt(i) % 1 ? answer += i : answer -= i;
     }
     
-    return nums.reduce((acc, cur) => acc + cur, 0)
+    return answer;
 }
