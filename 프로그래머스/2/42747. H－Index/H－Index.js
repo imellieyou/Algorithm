@@ -1,18 +1,12 @@
 function solution(citations) {
-    var answer = 0;
+    let answer = 0;
 
-    citations = citations.sort((a,b) => b-a);
+    citations.sort((a, b) => b - a); // [6, 5, 3, 1, 0]
 
-    let arr = [];
-
-    for(let i=0; i<citations.length; i++){
-        arr.push(citations[i]);
-        if(citations[i]<arr.length){
-            break;
-        }
-        answer++;
+    for(let i = 0; i < citations.length; i++) {
+        if(citations[i] > i) answer++;
+        else break;
     }
-
 
     return answer;
 }
